@@ -4,7 +4,7 @@ import json
 def callback(ch, method, properties, body):
     temperature_data = json.loads(body)
     temperature = temperature_data['temperature']
-    if temperature > 45:
+    if temperature > 50:
         print("Incêndio detectado! Temperatura:", temperature)
         publish_fire_alert()
 
