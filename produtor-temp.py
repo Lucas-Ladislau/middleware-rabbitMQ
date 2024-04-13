@@ -7,7 +7,7 @@ def get_cpu_temperature():
     try:
         output = subprocess.check_output(['sensors']).decode('utf-8')
         cpu_temperature_lines = [line.strip() for line in output.split('\n') if 'Core' in line]
-        # Pegue apenas as linhas que contêm a temperatura do núcleo da CPU
+        # Pegando apenas as linhas que contêm a temperatura do núcleo da CPU
         cpu_temperatures = []
         for line in cpu_temperature_lines:
             parts = line.split(':')
@@ -36,7 +36,7 @@ def publish_temperature():
             print("Failed to read CPU temperatures.")
         connection.close()
         
-        # Espera 1 minuto antes da próxima execução
+        # Espera 10 s antes da próxima execução
         time.sleep(10)
 
 if __name__ == "__main__":
